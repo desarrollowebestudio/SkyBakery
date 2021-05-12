@@ -1,0 +1,56 @@
+@import url('EstilosBase.css');
+
+/* 
+==================
+ESTRUCTURA GALERÍA 
+==================
+*/
+
+main ul.galeria-imagenes {
+	display: grid;
+	padding: 1rem 0px;
+	column-gap: 2rem;
+	row-gap: 2rem;
+	align-items: center;
+}
+
+main ul.galeria-imagenes figure {
+  border-radius: 15px;
+	background-color: white;
+	overflow: hidden;
+	box-shadow: 0px 3px 6px hsla(0, 0%, 10%, 10%);
+}
+
+main ul.galeria-imagenes img {
+	max-height: 300px;
+}
+
+main ul.galeria-imagenes figcaption {
+	padding: 2rem;
+	font-size: 1.5rem;
+	font-weight: 300;
+}
+
+/* 
+=====================
+MEDIA QUERIES GALERIA
+=====================
+*/
+
+@media(max-width: 549px) {
+	main ul.galeria-imagenes {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (min-width: 550px) and (max-width: 849px) {
+	main ul.galeria-imagenes {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (min-width: 850px) {
+	main ul.galeria-imagenes {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}

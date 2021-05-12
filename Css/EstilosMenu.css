@@ -1,0 +1,279 @@
+/* 
+=============
+IMPORTACIONES
+=============
+*/
+
+@import url('EstilosBase.css');
+@import url('EstilosBarraLateral.css');
+
+/* 
+=========
+VARIABLES
+=========
+*/
+
+main {
+  --ruta-imagen-menu-rebanadas: url('../Recursos/Imagenes/Postres/PeachPie.jpg');
+  --ruta-imagen-menu-porciones: url('../Recursos/Imagenes/Postres/Cherry.jpg');
+  --ruta-imagen-menu-mini-postres: url('../Recursos/Imagenes/Postres/MiniPies.jpg');
+  --ruta-imagen-menu-postres-completos: url('../Recursos/Imagenes/Postres/LemonMeringue.jpg');
+}
+
+/* 
+================================
+ESTILOS GENERALES ARTÍCULOS MENÚ
+================================
+*/
+
+main div.galeria-menu {
+  display: grid;
+  margin-top: 3rem;
+  grid-template-columns: 1fr;
+  row-gap: 2rem;
+}
+
+main article.articulo-menu {
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0px 3px 6px hsla(0, 0%, 10%, 10%);
+}
+
+main header.encabezado-articulo {
+  display: flex;
+  flex-flow: row wrap;
+  background-color: var(--colorBase3);
+  padding: 0.75rem 1.5rem;
+  border-bottom: 3px solid var(--colorBase2);
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+main header.encabezado-articulo h3 {
+  flex-shrink: 0;
+  margin-right: 1.5rem;
+  font-size: 2.5rem;
+  color: var(--colorPrimario);
+}
+
+main header.encabezado-articulo p {
+  flex-shrink: 0;
+  margin: 0px;
+  margin-top: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 300;
+  font-style: oblique;
+  color: var(--colorBase1);
+}
+
+main header.encabezado-articulo strong {
+  font-size: 1.6rem;
+  font-style: normal;
+}
+
+/* 
+=====================
+ARTÍCULOS PRINCIPALES
+=====================
+*/
+
+main div.cuerpo-articulo {
+  display: flex;
+  background-color: white;
+}
+
+main div.cuerpo-articulo figure.imagen-articulo {
+  position: relative;
+}
+
+main div.cuerpo-articulo figure.imagen-articulo img {
+  position: relative;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+}
+
+main div.cuerpo-articulo figure.imagen-articulo::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(35%);
+}
+
+main #menu-rebanadas figure.imagen-articulo::before {
+  background-image: var(--ruta-imagen-menu-rebanadas);
+}
+
+main #menu-porciones figure.imagen-articulo::before {
+  background-image: var(--ruta-imagen-menu-porciones);
+}
+
+main #menu-mini-postres figure.imagen-articulo::before {
+  background-image: var(--ruta-imagen-menu-mini-postres);
+}
+
+main #menu-postres-completos figure.imagen-articulo::before {
+  background-image: var(--ruta-imagen-menu-postres-completos);
+}
+
+main div.cuerpo-articulo div.informacion-menu {
+  font-size: 1.5rem;
+}
+
+main div.cuerpo-articulo div.informacion-menu h4 {
+  background-color: var(--colorBase4);
+  padding: 1.25rem 2rem;
+  font-family: 'Cabin', sans-serif;
+  font-style: italic;
+  color: var(--colorBase1);
+}
+
+main div.cuerpo-articulo section.lista-informacion {
+  padding: 2rem 2rem;
+}
+
+main #menu-rebanadas section.lista-informacion {
+  display: grid;
+}
+
+main div.cuerpo-articulo section.lista-informacion ul {
+  list-style-type: disc;
+  list-style-position: inside;
+  padding-left: 2rem;
+}
+
+main div.cuerpo-articulo section.lista-informacion li {
+  margin: 0.8rem 0px;
+}
+
+main div.cuerpo-articulo section.lista-informacion li::marker {
+  color: var(--colorPrimario);
+}
+
+/* 
+===================================
+MEDIA QUERIES ARTÍCULOS PRINCIPALES
+===================================
+*/
+
+/* Rango AB: Teléfonos Verticales */
+@media (max-width: 549px) {
+  main div.cuerpo-articulo {
+    flex-flow: column nowrap;
+  }
+  main div.cuerpo-articulo figure.imagen-articulo {
+    flex-basis: 100%;
+  }
+  main div.cuerpo-articulo div.informacion-menu {
+    flex-basis: 100%;
+  }
+  main #menu-rebanadas section.lista-informacion {
+    grid-template-columns: 1fr;
+    row-gap: 1.5rem;
+  }
+}
+
+/* Rango BZ: Teléfonos Horizontales, Tablets, Computadores */
+@media (min-width: 550px) {
+  main div.cuerpo-articulo {
+    flex-flow: row nowrap;
+  }
+  main div.cuerpo-articulo figure.imagen-articulo {
+    flex-basis: 30%;
+  }
+  main div.cuerpo-articulo div.informacion-menu {
+    flex-basis: 70%;
+  }
+  main #menu-rebanadas section.lista-informacion {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+  }
+}
+
+/* 
+====================
+ARTÍCULOS ESPECIALES
+====================
+*/
+
+main div.contenedor-especiales {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: white;
+}
+
+main div.contenedor-especiales article.tarjeta-producto {
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent var(--colorBase4);
+}
+
+main div.contenedor-especiales header.encabezado-producto {
+  display: flex;
+  flex-flow: row wrap;
+  background-color: var(--colorBase4);
+  padding: 1rem 1.5rem;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 1.5rem;
+  color: var(--colorBase1);
+}
+
+main div.contenedor-especiales header.encabezado-producto.precio-ausente {
+  justify-content: center;
+}
+
+main div.contenedor-especiales header.encabezado-producto h4 {
+  margin-right: 1.5rem;
+  font-family: 'Cabin', sans-serif;
+  color: inherit;
+}
+
+main div.contenedor-especiales header.encabezado-producto p {
+  margin: 0px;
+  font-style: italic;
+  color: inherit;
+}
+
+main div.contenedor-especiales div.informacion-producto {
+  padding: 2rem;
+  font-size: 1.5rem;
+}
+
+/* 
+==================================
+MEDIA QUERIES ARTÍCULOS ESPECIALES
+==================================
+*/
+
+/* Rango AB: Teléfonos Verticales */
+@media (max-width: 549px) {
+  main div.contenedor-especiales {
+    grid-template-columns: 1fr;
+  }
+  main div.contenedor-especiales header.encabezado-producto.precio-ausente {
+    justify-content: flex-start;
+  }
+}
+
+/* Rango BC: Teléfonos Horizontales */
+@media (min-width: 550px) and (max-width: 849px) {
+  main div.contenedor-especiales {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  main div.contenedor-especiales article.tarjeta-producto:first-of-type {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Rango CZ: Tablets, Computadores */
+@media (min-width: 850px) {
+  main div.contenedor-especiales {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

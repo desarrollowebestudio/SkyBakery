@@ -1,0 +1,102 @@
+/* 
+=============
+IMPORTACIONES
+=============
+*/
+
+@import url('EstilosBase.css');
+@import url('EstilosBarraLateral.css');
+@import url('EstilosIntroduccion.css');
+
+/* 
+===============
+LISTAS OPCIONES
+===============
+*/
+
+main div.contenedor-listas-opciones {
+  display: grid;
+  margin: 1.5rem 0px;
+  background-color: white;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0px 3px 6px hsla(0, 0%, 10%, 10%);
+}
+
+main div.contenedor-listas-opciones header.encabezado-lista {
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent hsla(0, 0%, 100%, 50%);
+  background-color: var(--colorBase3);
+  padding: 1rem 1.5rem;
+}
+
+main div.contenedor-listas-opciones header.encabezado-lista h4 {
+  font-family: 'Cabin', sans-serif;
+  font-size: 1.5rem;
+  color: var(--colorBase1);
+}
+
+main div.contenedor-listas-opciones ul.lista-opciones {
+  padding: 1.75rem 2.5rem;
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+main div.contenedor-listas-opciones ul.lista-opciones li {
+  font-size: 1.5rem;
+}
+
+main div.contenedor-listas-opciones ul.lista-opciones li:not(:first-of-type) {
+  margin-top: 0.8rem;
+}
+
+main div.contenedor-listas-opciones ul.lista-opciones li::marker {
+  color: var(--colorPrimario);
+}
+
+main div.contenedor-listas-opciones ul.lista-opciones :is(small, span) {
+  display: inline-block;
+  font-size: 1.2rem;
+  border-radius: 10rem;
+  padding: 0.25rem 0.75rem;
+}
+
+main div.contenedor-listas-opciones ul.lista-opciones small {
+  margin-left: 0.25rem;
+  background-color: var(--colorBase4);
+  color: var(--colorBase1);
+}
+
+main div.contenedor-listas-opciones ul.lista-opciones span.etiqueta {
+  margin-right: 0.25rem;
+  background-color: var(--colorSecundario);
+  color: white;
+}
+
+/* 
+=============================
+MEDIA QUERIES LISTAS OPCIONES
+=============================
+*/
+
+/* Rango AB: Teléfonos Verticales */
+@media (max-width: 549px) {
+  main div.contenedor-listas-opciones {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Rango BZ: Teléfonos Horizontales, Tablets, Computadores */
+@media (min-width: 550px) {
+  main div.contenedor-listas-opciones {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  main article#articulo-opciones-rellenos {
+    grid-column: 1 / -1;
+  }
+  main article#articulo-opciones-rellenos ul.lista-opciones {
+    column-count: 2;
+    column-gap: 1.5rem;
+  }
+}

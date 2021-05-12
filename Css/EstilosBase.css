@@ -1,0 +1,290 @@
+/* 
+=============
+IMPORTACIONES
+=============
+*/
+
+@import url('../Recursos/GoogleFonts/GoogleFonts.css');
+
+/* 
+=============
+RESET ESTILOS
+=============
+*/
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0px;
+  font-size: 1.6rem;
+}
+
+*, 
+*:before, 
+*:after {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0px;
+  font-weight: normal;
+}
+
+figure {
+  margin: 0px;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+
+/* 
+=================
+ESTILOS GENERALES
+=================
+*/
+
+html {
+  --colorPrimario:hsl(330, 100%, 40%);
+  --colorSecundario: hsl(180, 100%, 40%);
+  --colorBase1: hsl(30, 60%, 35%);  
+  --colorBase2: hsl(30, 60%, 55%);  
+  --colorBase3: hsl(30, 60%, 75%);
+  --colorBase4: hsl(45, 100%, 95%);
+}
+
+body {
+	font-family: 'Cabin', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Niconne', cursive;
+  color: var(--colorPrimario);
+}
+
+p {
+  margin: 0px;
+  line-height: 1.4em;
+}
+
+:is(p, cite):not(:first-child) {
+  margin-top: 1.5rem;
+}
+
+/*
+==========
+ESTRUCTURA
+==========
+*/
+
+body {
+  --colorPlanoFondo: linear-gradient(var(--colorSecundario), var(--colorSecundario));
+  --imagenFondo: url('../Recursos/Imagenes/Branding/Clouds.png');
+	background-image: var(--imagenFondo), var(--colorPlanoFondo);
+  background-blend-mode: multiply;
+}
+
+div.area-activa {
+  box-sizing: content-box;
+  max-width: 1200px;
+	margin: 0px auto;
+}
+
+/*
+======
+HEADER
+======
+*/
+
+header.encabezado-sitio {
+  padding: 1rem 0px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+header.encabezado-sitio img {
+  max-width: 200px;
+}
+
+/* 
+================
+BARRA NAVEGACIÓN
+================
+*/
+
+nav {
+  background-image: url('../Recursos/Imagenes/Branding/Scallop.png');
+  background-repeat: round no-repeat;
+  background-position: top;
+  overflow: auto;
+}
+
+nav ul {
+  display: flex;
+  margin-top: 10px;
+  background-color: var(--colorBase3); 
+  padding: 15px;
+  border-bottom: 3px solid var(--colorBase2);
+  flex-flow: row wrap;
+}
+
+nav a {
+  display: block;
+  text-decoration: none;
+  color: var(--colorPrimario);
+}
+
+nav a:hover {
+  color: var(--colorSecundario);
+}
+
+/* 
+=================================
+MEDIA QUERIES BARRA DE NAVEGACIÓN
+=================================
+*/
+
+/* Rango AB: Teléfonos Verticales */
+@media (max-width: 549px) {
+  nav li {
+    flex-basis: 50%;
+  }
+  nav a {
+    text-align: center;
+    padding: 1rem 1.5rem;
+  }
+}
+
+/* Rango BZ: Teléfonos Horizontales, Tablets, Computadores */
+@media (min-width: 550px) {
+  nav ul {
+    justify-content: flex-start;
+  }
+  nav li {
+    flex-basis: auto;
+    flex-grow: 0;
+  }
+  nav a {
+    padding: 0px 1.5rem;
+  }
+}
+
+/* 
+===================
+CONTENIDO PRINCIPAL
+===================
+*/
+
+main {
+  border-radius: 0px 0px 10px 10px;
+  background-color: var(--colorBase4);
+  padding: 3rem;
+}
+
+main h2 {
+  margin-bottom: 2rem;
+}
+
+main p, figcaption, cite, li {
+  color: hsl(0, 0%, 25%);
+}
+
+/* 
+=================================
+MEDIA QUERIES CONTENIDO PRINCIPAL
+=================================
+*/
+
+/* Rango AC: Teléfonos */
+@media (max-width: 849px) {
+  main h2 {
+    font-size: 3.2rem;
+  }
+}
+
+/* Rango CZ: Tablets, Computadores */
+@media (min-width: 850px) {
+  main h2 {
+    font-size: 4rem;
+    border-bottom: 2px dotted var(--colorPrimario);
+  }
+}
+
+/* 
+=============
+PIE DE PÁGINA
+=============
+*/
+
+footer {
+  padding: 3rem;
+  color: white;
+}
+
+footer p {
+  font-size: 1.4rem;
+  text-align: center;
+  color: hsla(0, 0%, 100%, 90%);
+}
+
+footer div.fila-iconos {
+  display: flex;
+  margin-top: 1.5rem;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
+footer div.fila-iconos a {
+  display: inline-block;
+  margin: 0px 0.5rem;
+  border-radius: 50%;
+  background-color: var(--colorSecundario);
+  padding: 1rem;
+  box-shadow: 0px 0px 15px hsla(0, 0%, 0%, 10%);
+  transition: transform 250ms ease;
+}
+
+footer div.fila-iconos a:hover {
+  transform: translateY(-3px);
+}
+
+/* 
+====================
+MEDIA QUERIES FOOTER
+====================
+*/
+
+/* Rango AB: Teléfonos Verticales */
+@media (max-width: 549px) {
+  footer div.fila-iconos img {
+    width: 20px;
+  }
+}
+
+/* Rango BZ: Teléfonos Horizontales, Tablets, Computadores */
+@media (min-width: 550px) {
+  footer div.fila-iconos img {
+    width: 24px;
+  }
+}

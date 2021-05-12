@@ -1,0 +1,198 @@
+/* 
+====================
+CONTENIDO PRINCIPAL
+====================
+*/
+
+main {
+  display: grid;
+  row-gap: 3rem;
+  column-gap: 3rem;
+  padding-bottom: 4rem;
+}
+
+main > section {
+  grid-area: seccion-principal;
+}
+
+main > aside {
+  grid-area: barra-lateral;
+}
+
+/* 
+==================================
+MEDIA QUERIES CONTENIDO PRINCIPAL
+==================================
+*/
+
+/* Rango AC: Teléfonos Horizontales */
+@media (max-width: 849px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'seccion-principal'
+      'barra-lateral';
+  }
+}
+
+/* Rango CZ: Tablets, Computadores */
+@media (min-width: 850px) {
+  main {
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas: 
+      'seccion-principal barra-lateral';
+  }
+}
+
+/* 
+=============
+BARRA LATERAL
+=============
+*/
+
+aside {
+  display: grid;
+  row-gap: 2rem;
+  column-gap: 3rem;
+}
+
+main article[class|='sidebar'] {
+  display: flex;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 1rem;
+  overflow: hidden;
+  flex-flow: column nowrap;
+}
+
+aside h3 {
+  padding: 0.5rem 1rem;
+  text-align: center;
+  color: white;
+}
+
+article.sidebar-primario {
+  grid-area: primario;
+  background-color: white;
+  border-color: var(--colorSecundario);
+}
+
+article.sidebar-primario h3 {
+  flex: none;
+  background-color: var(--colorSecundario);
+}
+
+article.sidebar-secundario {
+  grid-area: secundario;
+  border-color: var(--colorPrimario);
+}
+
+article.sidebar-secundario h3 {
+  position: relative;
+  z-index: 1;
+  background-color: var(--colorPrimario);
+}
+
+aside h3 {
+  font-size: 2.2rem;
+}
+
+aside blockquote {
+  display: flex;
+  flex-basis: auto;
+  flex-grow: 1;
+  margin: 0px;
+  padding: 1.5rem 2rem 2rem;
+  flex-flow: column nowrap;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: hsl(0, 0%, 20%);
+}
+
+aside p {
+  text-align: center;
+}
+
+aside cite {
+  display: block;
+  font-style: normal;
+  text-align: right;
+  text-transform: capitalize;
+}
+
+aside cite::before {
+  content: '- ';
+}
+
+article.sidebar-secundario figure {
+  display: flex;
+  flex-basis: auto;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  position: relative;
+}
+
+article.sidebar-secundario figure::before {
+  position: absolute;
+  content: '';
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-image: url('../Recursos/Imagenes/Postres/PieNumbers.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(55%);
+  overflow: hidden;
+}
+
+aside img {
+  position: relative;
+  max-width: 250px;
+  object-fit: contain;
+  z-index: 1;
+}
+
+/* 
+===========================
+MEDIA QUERIES BARRA LATERAL
+===========================
+*/
+
+/* Recorrido 1 */
+/* Rango AB: Teléfonos Verticales */
+@media (max-width: 549px) {
+  aside {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      'primario'
+      'secundario';
+  }
+  main article[class|='sidebar'] {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+}
+
+/* Rango BC: Teléfonos Horizontales */
+@media (min-width: 550px) and (max-width: 849px) {
+  aside {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      'primario secundario';
+  }
+}
+
+/* Rango CZ: Tablets, Computadores */
+@media (min-width: 850px) {
+  aside {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, min-content);
+    grid-template-areas: 
+      'primario'
+      'secundario';
+  }
+}

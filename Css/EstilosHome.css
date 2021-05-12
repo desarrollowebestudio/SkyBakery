@@ -1,0 +1,186 @@
+@import url('../Css/EstilosBase.css');
+
+/* 
+====================
+ENCABEZADO CONTENIDO
+====================
+*/
+
+main {
+  padding: 0px;
+}
+
+main div.imagen-encabezado {
+  height: 180px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+main div.cuerpo-contenido {
+  padding: 3rem;
+}
+
+/* 
+==================================
+MEDIA QUERIES ENCABEZADO CONTENIDO
+==================================
+*/
+
+/* Rango AB: Teléfonos Verticales */
+@media (max-width: 549px) {
+  main div.imagen-encabezado {
+    background-image: url('../Recursos/Imagenes/Encabezado/Header@850px.jpg');
+  }
+  main p.descripcion-general {
+    font-size: 1.5rem;
+    text-align: start;
+  }
+}
+
+/* Rango BZ: Teléfonos Horizontales, Tablets, Computadores */
+@media (min-width: 550px) {
+  main div.imagen-encabezado {
+    background-image: url('../Recursos/Imagenes/Encabezado/Header@1200px.jpg');
+  }
+  main p.descripcion-general {
+    font-size: 1.6rem;
+    text-align: justify;
+  }
+}
+
+/* 
+================
+GALERÍA TARJETAS
+================
+*/
+
+main div.galeria-tarjetas {
+  margin-top: 3rem;
+  display: grid;
+  column-gap: 3rem;
+  row-gap: 3rem;
+  justify-items: center;
+}
+
+main div.galeria-tarjetas div.tarjeta-galeria {
+  display: flex;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0px 3px 6px hsla(0, 0%, 50%, 10%);
+  flex-flow: column nowrap;
+}
+
+main div.galeria-tarjetas h3 {
+  flex: none;
+  margin: 0px;
+  background-color: var(--colorPrimario);
+  padding: 0.5rem 1rem;
+  font-size: 2.2rem;
+  text-align: center;
+  color: white;
+}
+
+main div.galeria-tarjetas img.imagen-tarjeta {
+  height: 150px;
+  object-fit: cover;
+}
+
+main div.galeria-tarjetas div.cuerpo-tarjeta {
+  display: flex;
+  flex: auto;
+  margin: 0px;
+  padding: 1.5rem 2rem;
+  font-size: 1.4rem;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+
+main div.galeria-tarjetas blockquote {
+  margin: 0px;
+  margin-bottom: 1rem;
+}
+
+main div.galeria-tarjetas p:first-of-type {
+  margin-top: 0px;
+}
+
+main div.galeria-tarjetas cite {
+  display: block;
+  font-style: normal;
+  text-align: right;
+  text-transform: capitalize;
+}
+
+main div.galeria-tarjetas cite::before {
+  content: '- ';
+}
+
+main div.galeria-tarjetas div.boton-tarjeta {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+main div.galeria-tarjetas div.boton-tarjeta a {
+  display: inline-block;
+  border-radius: 100px;
+  background-color: var(--colorSecundario);
+  padding: 0.75rem 2.5rem;
+  text-decoration: none;
+  color:white;
+}
+
+main div.galeria-tarjetas div.boton-tarjeta i.simbolo-boton {
+  display: inline-block;
+  position: relative;
+  font-style: normal;
+  transition: transform 250ms ease;
+}
+
+main div.galeria-tarjetas div.boton-tarjeta a:hover {
+  box-shadow: 0px 3px 6px hsla(0, 0%, 0%, 10%);
+}
+
+main div.galeria-tarjetas div.boton-tarjeta:hover i.simbolo-boton {
+  transform: translateX(3px);
+}
+
+/* 
+==============================
+MEDIA QUERIES GALERÍA TARJETAS
+============================== 
+*/
+
+/* Rango AB: Teléfonos Verticales */
+@media (max-width: 549px) {
+  main div.galeria-Tarjetas {
+    grid-template-columns: 1fr;
+  }
+  main div.galeria-tarjetas article {
+    max-width: 350px;
+  }
+  main div.galeria-tarjetas div.boton-tarjeta a {
+    width: 100%;
+  }
+}
+
+/* Rango BC: Teléfonos Horizontales */
+@media (min-width: 550px) and (max-width: 849px) {
+  main div.galeria-tarjetas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  main div.galeria-tarjetas article.articulo-imagen {
+    order: -1;
+  }
+}
+
+/* Rango CZ: Tablets, Computadores */
+@media (min-width: 850px) {
+  main div.galeria-tarjetas {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  main div.galeria-tarjetas div.boton-tarjeta a {
+    width: 100%;
+  }
+}
